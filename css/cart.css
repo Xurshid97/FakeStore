@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.cart_main{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 25px;
+}
+
+.items_page {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    background-color: rgb(221, 250, 215);
+}
+
+.item_card {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.item_img {
+    width: 250px;
+}
+.item_counter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.user_page {
+    width: 30%;
+    max-height: 500px;
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    background-color: rgb(129, 120, 230);
+}
