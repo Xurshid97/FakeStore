@@ -1,5 +1,5 @@
 // get user data from crudcrud
-let apiUsers = 'https://crudcrud.com/api/d84c529ab2e940e0960378cb462f113a/users'
+let apiUsers = 'https://crudcrud.com/api/8f6d8edb8963483a8ae4595f2560b30f/users'
 
 let data = fetch(apiUsers)
     .then(res=>res.json())
@@ -22,7 +22,7 @@ let data = fetch(apiUsers)
                     localStorage.setItem('userData', JSON.stringify(userData))
 
                     // if username and password was found go to main page
-                    window.location.replace("../html/index.html");                                   
+                    window.location.replace("../index.html");                                   
                 }
                 else {
                     alert('Please enter correct username and password');

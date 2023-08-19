@@ -4,7 +4,7 @@ let loginEl = document.getElementById('login')
 postFormEl.addEventListener('submit', (e)=>{
     e.preventDefault();
 
-    fetch('https://crudcrud.com/api/d84c529ab2e940e0960378cb462f113a/users', 
+    fetch('https://crudcrud.com/api/8f6d8edb8963483a8ae4595f2560b30f/users', 
         {
             method: 'POST',
             headers: { "Content-Type": "application/json"},            
@@ -15,7 +15,7 @@ postFormEl.addEventListener('submit', (e)=>{
                     })
         }
     ).then(()=>{
-        window.location.replace("../html/login.html");
+        window.location.replace("../login.html");
     })
 })
 

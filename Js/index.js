@@ -4,8 +4,7 @@ let cartItemsEl = document.querySelector('.cartItems')
 let storedUserData = localStorage.getItem('userData')
 let userDataLocal = JSON.parse(storedUserData) 
 
-// new Map is created because on parse old map is being changed 
-const newMapItems = new Map(userDataLocal.itemdata)
+
 
 let api = 'https://fakestoreapi.com/products'
 fetch(api)
@@ -34,7 +33,6 @@ fetch(api)
             }
             // by default all cards will be visible
             cardCallFunction(e)
-
             // get user data from local storage
             let storedUserData = localStorage.getItem('userData')
             let userDataLocal = JSON.parse(storedUserData)
@@ -65,8 +63,11 @@ fetch(api)
                 
                 // if button is clicked add item to the cart,
                 // create one cart on global scope when button clicked add the item id to the cart
-                // if item already in cart show the message that already item in cart      
+                // if item already in cart show the message that already item in cart   
 
+                // new Map is created because on parse old map is being changed 
+                const newMapItems = new Map(userDataLocal.itemdata)
+                
                 buyBtn.addEventListener('click', ()=>{
                     if (newMapItems.has(buyBtn.getAttribute('data_id'))) {
                         alert('Item already in cart')

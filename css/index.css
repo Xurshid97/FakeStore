@@ -23,6 +23,7 @@ a {
     background-color: black;
     padding: 15px 10px;
     color: white;
+    font-weight: 900;
 }
 
 .right_bar {
@@ -40,6 +41,8 @@ a {
 
 .categories {
     display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
     justify-content: space-between;
     padding: 15px 0;
 }
@@ -49,10 +52,12 @@ a {
     color: white;
     padding: 5px 15px;
     border-radius: 15px;
+    font-weight: 800;
 }
 
 .categories input:hover {
-    background-color: rgb(246, 0, 0);
+    background-color: white;
+    color: black;
 }
 
 .products {

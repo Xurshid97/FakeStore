@@ -1,3 +1,21 @@
-.userInfo {
-    display: none;
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    gap: 10px;
+}
+input {
+    border-radius: 5px;
+}
+.button {
+    padding: 5px;
+    background-color: black;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: white;
+    color: black;
 }
