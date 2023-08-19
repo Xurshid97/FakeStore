@@ -10,8 +10,10 @@ let data = fetch(apiUsers)
             loginEl.addEventListener('submit', (e)=>{
                 e.preventDefault();
 
-                if (element.username == loginEl['username'].value) {
-                    
+                if (!element.username == loginEl['username'].value) {
+                    alert('Please enter correct username and password');                              
+                }
+                else {                    
                     // set user data to local storage of browser
                 
                     const userData = {
@@ -22,10 +24,8 @@ let data = fetch(apiUsers)
                     localStorage.setItem('userData', JSON.stringify(userData))
 
                     // if username and password was found go to main page
-                    window.location.replace("../index.html");                                   
-                }
-                else {
-                    alert('Please enter correct username and password');
+                    window.location.replace("../index.html");  
+                    
                 }
             })
         });
