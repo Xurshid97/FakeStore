@@ -15,9 +15,9 @@ let data = fetch(apiUsers)
                 }
                 else {                    
                     // set user data to local storage of browser
-                
+                    
                     const userData = {
-                        username: element.username,
+                        username: loginEl['username'].value,
                         itemdata: []
                     }
 
