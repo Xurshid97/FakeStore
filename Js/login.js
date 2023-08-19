@@ -10,7 +10,7 @@ let data = fetch(apiUsers)
             loginEl.addEventListener('submit', (e)=>{
                 e.preventDefault();
 
-                if (element.username === loginEl['username'].value && element.password === loginEl['password'].value) {
+                if (element.username == loginEl['username'].value && element.password == loginEl['password'].value) {
                     
                     // set user data to local storage of browser
                 
