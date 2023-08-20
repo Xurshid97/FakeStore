@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     fetch(apiUrlFakeStore)
         .then(res=>res.json())
         .then((data)=>{      
-            let item_card = document.querySelector('.items_page')      
+            let item_card = document.querySelector('.items_page') 
+
             data.filter((element)=>{
                 allItemsOfCart.forEach(e => {
                     if (element.id == e[0]) {
@@ -130,6 +131,24 @@ document.addEventListener('DOMContentLoaded', ()=>{
             })
 
             total_costEl.innerHTML = `Umumiy narx ${totalPrice}$`
+
+
+            // placing order
+            let placeEl = document.getElementById('place_order')
+            
+            placeEl.addEventListener('click', ()=>{
+                let boughtEl = []
+                allItemsOfCart.forEach((cartItem)=>{
+                    data.filter((item)=>{
+                        if(cartItem[0] == item.id){
+                            boughtEl.push(` ${item.title}`)
+                        }
+                    })
+                })
+
+                alert(`You have bought the ${boughtEl}`)
+            })
+
         })
 })
 

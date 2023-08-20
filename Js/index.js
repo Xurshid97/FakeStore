@@ -97,31 +97,28 @@ fetch(api)
 document.addEventListener('DOMContentLoaded', ()=>{
     let allCardsEl = document.getElementsByClassName('product_card')
 
-    // 1. all cards will be visible
-    let allEl = document.getElementById('all')
-    allEl.addEventListener('click', ()=>{    
-        for (let index = 0; index < allCardsEl.length; index++) {
-            const element = allCardsEl[index];
-            let classArr = element.classList.value.split('-')        
-            if (allEl.name != classArr[0].trimStart()) {
-                element.style.display = 'flex'
-            }
-        }
-    })
-
     // general function to make cards visible or not by category
     let filterFunction = (classofParent)=>{
         for (let index = 0; index < allCardsEl.length; index++) {
             const element = allCardsEl[index];
-            let classArr = element.classList.value.split('-')        
-            if (classofParent.value != classArr[1].trimStart()) {
-                element.style.display = 'none'
+            let classArr = element.classList.value.split('-')
+
+            if (classofParent.value === classArr[1].trimStart()) {
+                element.style.display = 'flex'
+            }
+            else if(classofParent.value == 'All') {
+                element.style.display = 'flex'
             }
             else{
-                element.style.display = 'flex'
+                element.style.display = 'none'
             }
         }
     }
+
+    let allEl = document.getElementById('all')
+    allEl.addEventListener('click', ()=>{
+        filterFunction(allEl)
+    })
 
     let electronicsEl = document.getElementById('electronics')
     electronicsEl.addEventListener('click', ()=>{
