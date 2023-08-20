@@ -84,6 +84,8 @@ fetch(api)
                         cartItemsEl.style.display = 'flex'
                         
                         localStorage.setItem('userData', JSON.stringify(userDataLocalUpdate))
+
+                        location.reload()
                     }
                 })                
                 
