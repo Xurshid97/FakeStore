@@ -1,5 +1,5 @@
 // get user data from crudcrud
-let apiUsers = 'https://crudcrud.com/api/a1a78efca87c4472a8bceb9024d325f6/users'
+let apiUsers = 'https://crudcrud.com/api/34c0ff3f3dce4c0a867f94167026d549/users'
 
 let data = fetch(apiUsers)
     .then(res=>res.json())
