@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                             }
 
                             localStorage.setItem('userData', JSON.stringify(updateStorage))
-                            location.reload()
+                            // location.reload()
                         }
                     })                    
                 })
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                             }
                             localStorage.setItem('userData', JSON.stringify(updateStorage))
 
-                            location.reload()
+                            // location.reload()
                         }
                     })                    
                 })

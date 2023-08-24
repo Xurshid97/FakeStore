@@ -85,7 +85,7 @@ fetch(api)
                         
                         localStorage.setItem('userData', JSON.stringify(userDataLocalUpdate))
 
-                        location.reload()
+                        // location.reload()
                     }
                 })                
                 
