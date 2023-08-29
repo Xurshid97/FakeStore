@@ -21,7 +21,7 @@ a {
     position: sticky;
     top: 0;
     background-color: black;
-    padding: 15px 10px;
+    padding: 15px 100px;
     color: white;
     font-weight: 900;
 }
@@ -76,6 +76,7 @@ a {
     border: 1px solid red;
     border-radius: 15px;
     padding: 15px;
+    box-shadow: 2px 2px 3px black, -2px -2px 3px black;
 }
 
 .buyBtn {
@@ -84,7 +85,8 @@ a {
     padding: 5px 25px;
     cursor: pointer;
     color: red;
-    border: 1px solid red;
+    font-weight: 800;
+    border: 2px solid red;
     border-radius: 7.5px;
 }
 
@@ -100,13 +102,26 @@ img{
 .product_img {
     height: 250px;
     object-fit: cover;
+    cursor: pointer;
+    transition-duration: 2s;
 }
-
+.product_img:hover {
+     transform: scale(1.2);
+     border: 1px solid black;
+}
 
 .cart {
     display: flex;
     align-items: center;
     gap: 5px;
+    cursor: pointer;
+    padding: 2px 3px;
+    transition-timing-function: ease-in-out;
+}
+
+.cart:hover{
+    background-color: rgba(0, 26, 128, 0.311);
+    transform:scale(1.5);
 }
 
 .cartItems {

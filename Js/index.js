@@ -33,18 +33,17 @@ fetch(api)
             }
             // by default all cards will be visible
             cardCallFunction(e)
+
             // get user data from local storage
             let storedUserData = localStorage.getItem('userData')
             let userDataLocal = JSON.parse(storedUserData)
-            
-
             if(userDataLocal) {
                 // render username and cart items on page
                 let userInfoEl = document.getElementById('userInfo')
                 userInfoEl.innerHTML = `Hi, ${userDataLocal.username}`
 
                 let cartItemsEl = document.querySelector('.cartItems')
-                cartItemsEl.innerHTML = `${userDataLocal.itemdata.length}`
+                cartItemsEl.innerHTML = `${Object.keys(userDataLocal['itemdata']).length}`
                 cartItemsEl.style.display = 'flex'
 
                 // hide login and register links if user is already logged in
@@ -61,35 +60,40 @@ fetch(api)
                 buyBtn.setAttribute('data_id', e.id)
                 product_cardEl.appendChild(buyBtn)
                 
-                // if button is clicked add item to the cart,
-                // create one cart on global scope when button clicked add the item id to the cart
-                // if item already in cart show the message that already item in cart   
-
-                // new Map is created because on parse old map is being changed 
-                const newMapItems = new Map(userDataLocal.itemdata)
-                
-                buyBtn.addEventListener('click', ()=>{
-                    if (newMapItems.has(buyBtn.getAttribute('data_id'))) {
-                        alert('Item already in cart')
-                    }
-                    else {
-                        newMapItems.set(buyBtn.getAttribute('data_id'), 1)
-
-                        const userDataLocalUpdate = {
-                            username: userDataLocal['username'],
-                            itemdata: Array.from(newMapItems)
-                        }
-
-                        cartItemsEl.innerHTML = `${userDataLocalUpdate['itemdata'].length}`
-                        cartItemsEl.style.display = 'flex'
-                        
-                        localStorage.setItem('userData', JSON.stringify(userDataLocalUpdate))
-
-                        // location.reload()
-                    }
-                })                
-                
             }
+        })
+        return fetch(api)
+    })
+    .then(()=>{
+        // word count on title
+        let titleEl = document.querySelectorAll('.title')
+        titleEl.forEach((title)=>{
+            let newStr = ''
+            for (let index = 0; index < title.textContent.trim().length; index++) {
+                if (index < 25) {
+                    newStr += title.textContent.trim()[index];
+                }                    
+            }
+            title.textContent = newStr + '...'
+        })
+
+        const newListCart = userDataLocal.itemdata
+        let buyBtns = document.querySelectorAll('.buyBtn')
+        buyBtns.forEach((buyBtn)=>{
+            buyBtn.addEventListener('click', ()=>{
+                if (newListCart[`${(buyBtn.getAttribute('data_id'))}`]) {
+                    alert('Item already in cart')
+                }
+                else {
+                    newListCart[`${(buyBtn.getAttribute('data_id'))}`] = 1
+    
+                    userDataLocal.itemdata = newListCart
+                    localStorage.setItem('userData', JSON.stringify(userDataLocal))
+                    cartItemsEl.innerHTML = `${Object.keys(userDataLocal['itemdata']).length}`
+                    cartItemsEl.style.display = 'flex'
+                    
+                }
+            })
         })
     })
     .catch((err)=>{

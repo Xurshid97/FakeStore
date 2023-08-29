@@ -1,5 +1,5 @@
 // get user data from crudcrud
-let apiUsers = 'https://crudcrud.com/api/34c0ff3f3dce4c0a867f94167026d549/users'
+let apiUsers = 'https://crudcrud.com/api/abcd7b747a6f42ac93ccbc2cc6c0b747/users'
 
 let data = fetch(apiUsers)
     .then(res=>res.json())
@@ -18,7 +18,7 @@ let data = fetch(apiUsers)
                 // set user data to local storage of browser
                 const userData = {
                     username: currentUser[0].username,
-                    itemdata: []
+                    itemdata: {}
                 }
                 localStorage.setItem('userData', JSON.stringify(userData))
 
